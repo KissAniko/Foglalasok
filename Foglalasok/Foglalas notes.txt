@@ -1,0 +1,78 @@
+  Adatbázis létrehozása: 
+
+
+       CREATE DATABASE oldtimer collate 'utf8_hungarian_ci';
+ vagy:    CREATE DATABASE oldtimer DEFAULT CHARACTER SET utf8 collate 'utf8_hungarian_ci';
+
+----------------------------------------------------------------------------------
+
+Ha meglévő táblát akarok törölni: drop table táblaneve.
+
+
+Tábla létrehozása: 
+
+CREATE TABLE szobak (
+  szazon int,
+  sznev varchar(6),
+  agy int,
+  potagy int,
+  CONSTRAINT pk_szobak PRIMARY KEY (szazon)
+);
+
+
+CREATE TABLE vendegek (
+  vsorsz int,
+  vnev varchar(16),
+  irsz int,
+  CONSTRAINT pk_vendegek PRIMARY KEY (vsorsz)
+);
+
+CREATE TABLE foglalasok (
+  fsorsz int,
+  vendeg int,
+  szoba int,
+  erk date,
+  tav date,
+  fo int,
+  CONSTRAINT pk_foglalasok PRIMARY KEY (fsorsz)
+);
+
+
+
+pk = primery key
+
+------------------------------------------------------------
+
+
+INSERT INTO szobak (szazon, sznev, agy, potagy) VALUES
+(1, 'Szende', 4, 3),
+(2, 'Szundi', 4, 2),
+(3, 'Morgó', 3, 2),
+(4, 'Hapci', 3, 2),
+(5, 'Tudor', 4, 1),
+(6, 'Vidor', 2, 2),
+(7, 'Kuka', 1, 1);
+
+
+INSERT INTO vendegek (vsorsz, vnev, irsz) VALUES
+(1, 'Gulyás Klaudia', 2074),
+(2, 'Barta Andrea', 8943),
+(3, 'Hegedüs Éva', 8052),
+(4, 'Veres Gizella', 4163),
+(5, 'Máté Martin', 7098),
+.....
+
+
+
+
+INSERT INTO foglalasok (fsorsz, vendeg, szoba, erk, tav, fo) VALUES
+(1, 1, 3, '2016-01-04', '2016-01-07', 4),
+(2, 2, 4, '2016-01-04', '2016-01-06', 3),
+(3, 3, 6, '2016-01-05', '2016-01-08', 3),
+(4, 4, 2, '2016-01-06', '2016-01-09', 5),
+(5, 5, 3, '2016-01-07', '2016-01-08', 4),
+(6, 6, 1, '2016-01-08', '2016-01-10', 6),
+.....
+
+
+További adatok a 'foglalasi adatok.sql' -ben vannak.
